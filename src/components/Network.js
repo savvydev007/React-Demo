@@ -13,14 +13,14 @@ function Network(props) {
     const [days, setDays] = useGlobalState('day');
 
     var balance = localStorage.getItem('balance');
-    
+
     function ShowInterest(event) {
         setAmount(event.target.value * 1);
         setInterst(event.target.value * rate / 100);
     }
 
     function DepositAmount() {
-        if(amount > balance) alert("You can't deposit more than current balance!!!");
+        if (amount > balance) alert("You can't deposit more than current balance!!!");
         else {
             setTotal(total + amount);
             localStorage.setItem('balance', balance - amount);
@@ -28,7 +28,7 @@ function Network(props) {
     }
 
     function WithdrawAmount() {
-        if(amount > total) alert("You cant withdraw more than deposited amount!!!");
+        if (amount > total) alert("You cant withdraw more than deposited amount!!!");
         else {
             setTotal(total - amount);
             localStorage.setItem('balance', balance * 1 + amount * 1);
